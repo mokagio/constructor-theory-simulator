@@ -636,9 +636,8 @@ class TestCTFramework(unittest.TestCase):
             pass
 
     # 58. Test plot_phase_space with matplotlib available
-    @unittest.skipUnless(True, "matplotlib is now available")  # Always run since we installed it
+    @unittest.skipUnless(HAS_PLT, "matplotlib not installed")
     def test_plot_phase_space_matplotlib(self):
-        import matplotlib.pyplot as plt
         # Mock plt.show to prevent actual display
         original_show = plt.show
         plt.show = lambda: None
